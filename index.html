@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glowora Studio — Curated Aesthetic Finds</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Soft decorative blobs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,149,122,0.12) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,149,122,0.09) 0%, transparent 70%);
+      bottom: -80px; left: -80px;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 400;
+      margin-bottom: 22px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.1s var(--ease) forwards;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(46px, 8vw, 88px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s var(--ease) forwards;
+    }
+    .hero h1 em { color: var(--rose); font-style: italic; }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-light);
+      font-weight: 300;
+      max-width: 440px;
+      line-height: 1.75;
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.3s var(--ease) forwards;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 15px 40px;
+      background: var(--rose);
+      color: var(--white);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border-radius: 99px;
+      transition: background 0.25s, transform 0.25s;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.4s var(--ease) forwards;
+    }
+    .hero-cta:hover {
+      background: var(--rose-deep);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.7s var(--ease) forwards;
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--rose), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.1); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── CATEGORIES PREVIEW ── */
+    .categories-section {
+      padding: 80px 48px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .categories-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .categories-header .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 14px;
+    }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .cat-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/5;
+      cursor: pointer;
+      background: var(--blush);
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+      border: 1px solid rgba(201,149,122,0.12);
+    }
+    .cat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(58,46,40,0.11);
+    }
+
+    .cat-bg {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .cat-card:hover .cat-bg { transform: scale(1.06); }
+
+    .cat-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,34,28,0.62) 0%, transparent 55%);
+    }
+
+    .cat-label {
+      position: absolute;
+      bottom: 18px; left: 18px; right: 18px;
+    }
+    .cat-label h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .cat-label span {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Glow<em>ora</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="storefront.html">Shop</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Welcome to Glowora Studio</p>
+    <h1>Curated finds for<br><em>beautiful living</em></h1>
+    <p class="hero-sub">Handpicked aesthetic products for your home, workspace, and everyday life.</p>
+    <a href="storefront.html" class="hero-cta">Explore the Shop</a>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES PREVIEW -->
+  <section class="categories-section">
+    <div class="categories-header">
+      <p class="eyebrow">Browse by mood</p>
+      <h2 class="section-title">Shop by <em>Category</em></h2>
+    </div>
+
+    <div class="cat-grid" id="catGrid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Glow<em>ora</em> Studio</div>
+    <p class="footer-note">This site contains affiliate links. We earn a small commission at no extra cost to you.</p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script>
+    // Category cover images
+    const catImages = {
+      "Home Decor":       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80",
+      "Tech Accessories": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80",
+      "Stationery":       "https://images.unsplash.com/photo-1517971129774-8a2b38fa128e?w=600&q=80",
+      "Fashion":    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
+      "Beauty": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80",
+      "Gifts & Cute Finds":"https://images.unsplash.com/photo-1603006905003-be475563bc59?w=600&q=80"
+    };
+
+    const grid = document.getElementById('catGrid');
+    Object.keys(PRODUCTS).forEach(cat => {
+      const count = PRODUCTS[cat].length;
+      const card = document.createElement('a');
+      card.href = `storefront.html?cat=${encodeURIComponent(cat)}`;
+      card.className = 'cat-card';
+      card.innerHTML = `
+        <img class="cat-bg" src="${catImages[cat] || ''}" alt="${cat}" loading="lazy" />
+        <div class="cat-overlay"></div>
+        <div class="cat-label">
+          <h3>${cat}</h3>
+          <span>${count} ${count === 1 ? 'item' : 'items'}</span>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

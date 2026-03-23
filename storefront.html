@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Glowora Studio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── FILTER BAR ── */
+    .filter-wrap {
+      padding: 36px 40px 0;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 400;
+      padding: 9px 22px;
+      border-radius: 99px;
+      border: 1px solid rgba(201,149,122,0.3);
+      background: transparent;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: background 0.22s, color 0.22s, border-color 0.22s;
+    }
+    .filter-btn:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+    }
+    .filter-btn.active {
+      background: var(--rose);
+      border-color: var(--rose);
+      color: #fff;
+    }
+
+    /* ── SECTION HEADERS inside grid ── */
+    .cat-heading {
+      column-span: all;
+      padding: 16px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .cat-heading h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .cat-heading h2 em { font-style: italic; color: var(--rose); }
+    .cat-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201,149,122,0.22);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Glow<em>ora</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="storefront.html" class="active">Shop</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="eyebrow">Glowora Collections</p>
+    <h1>The <em>Storefront</em></h1>
+    <p>Curated finds across home, tech, fashion, stationery & gifts</p>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-wrap">
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="All">All</button>
+    </div>
+  </div>
+
+  <!-- MASONRY GRID -->
+  <main class="masonry" id="grid"></main>
+  <p class="empty" id="empty" style="display:none">No products in this category yet — check back soon!</p>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Glow<em>ora</em> Studio</div>
+    <p class="footer-note">This site contains affiliate links. We earn a small commission at no extra cost to you.</p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script>
+    let activeFilter = 'All';
+
+    // Read ?cat= from URL to pre-select a category
+    const urlParams = new URLSearchParams(window.location.search);
+    const preselect = urlParams.get('cat');
+    if (preselect && PRODUCTS[preselect]) activeFilter = preselect;
+
+    // Build filter buttons from product categories
+    const filterBar = document.getElementById('filterBar');
+    Object.keys(PRODUCTS).forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn' + (cat === activeFilter ? ' active' : '');
+      btn.dataset.filter = cat;
+      btn.textContent = cat;
+      filterBar.appendChild(btn);
+    });
+    if (preselect) {
+      filterBar.querySelector('[data-filter="All"]').classList.remove('active');
+    }
+
+    // Filter button clicks
+    filterBar.addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      renderGrid();
+    });
+
+    function renderGrid() {
+      const grid   = document.getElementById('grid');
+      const empty  = document.getElementById('empty');
+      grid.innerHTML = '';
+
+      const cats = activeFilter === 'All' ? Object.keys(PRODUCTS) : [activeFilter];
+      let total = 0;
+
+      cats.forEach(cat => {
+        const items = PRODUCTS[cat] || [];
+        if (!items.length) return;
+        total += items.length;
+
+        // Category heading (only in All view)
+        if (activeFilter === 'All') {
+          const h = document.createElement('div');
+          h.className = 'cat-heading';
+          h.innerHTML = `<h2>${cat.split(' ')[0]} <em>${cat.split(' ').slice(1).join(' ')}</em></h2>`;
+          grid.appendChild(h);
+        }
+
+        items.forEach((p, i) => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.style.animationDelay = (i * 0.06 + 0.04) + 's';
+          card.innerHTML = `
+            <div class="card-img">
+              <img src="${p.image}" alt="${p.name}" loading="lazy" />
+              <div class="card-overlay">
+                <a href="${p.affiliateLink}" target="_blank" rel="noopener noreferrer" class="overlay-pill" onclick="event.stopPropagation()">View on Amazon</a>
+              </div>
+              ${p.featured ? '<span class="badge">Glowora Pick</span>' : ''}
+            </div>
+            <div class="card-body">
+              <p class="card-cat">${cat}</p>
+              <h3 class="card-name">${p.name}</h3>
+              <p class="card-desc">${p.description}</p>
+              <a href="${p.affiliateLink}" target="_blank" rel="noopener noreferrer" class="card-btn">
+                See Details
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      });
+
+      empty.style.display = total === 0 ? 'block' : 'none';
+    }
+
+    renderGrid();
+  </script>
+</body>
+</html>
