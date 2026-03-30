@@ -367,7 +367,99 @@ const PRODUCTS = {
     image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
     affiliateLink: "https://amzn.to/4dmIcM3",
     featured: false
-  }
+  },
+  {
+    name: "Secret Lives Pink Floral Press On Nails",
+    description: "Glossy translucent pink nails with flower design, reusable set of 24",
+    image: "https://m.media-amazon.com/images/I/61-RE4QL09L._SL1440_.jpg",
+    affiliateLink: "https://amzn.to/40XhMJj",
+    featured: false
+  },  
+  {
+    name: "Secret Lives 3D Butterfly & Flower Press On Nails",
+    description: "Glossy pink nails with 3D butterfly & pearl art, reusable set of 24",
+    image: "https://m.media-amazon.com/images/I/612fJdvoIJL._SL1000_.jpg",
+    affiliateLink: "https://amzn.to/4s42oG3",
+    featured: false
+  }, 
+    {
+    name: "Buddy Jelly Pink Floral Stick-On Nails W501",
+    description: "Reusable unbreakable press-on nails, soft pink with floral accents",
+    image: "https://m.media-amazon.com/images/I/512wx1HRLTL.jpg",
+    affiliateLink: "https://amzn.to/4cene0A",
+    featured: false
+  }, 
+  {
+    name: "Buddy Jelly Ombre Pink Press On Nails Y-31",
+    description: "Reusable unbreakable stick-on nails, soft gradient pink finish",
+    image: "https://m.media-amazon.com/images/I/71-LZjDHR0L._SL1500_.jpg",
+    affiliateLink: "https://amzn.to/3PFywlN",
+    featured: false
+  }, 
+  {
+    name: "Gush Beauty Shimmery French Tip Press On Nails",
+    description: "Reusable medium round nails with glittery silver French tips",
+    image: "https://m.media-amazon.com/images/I/61kJLG57xLL._SL1200_.jpg",
+    affiliateLink: "https://amzn.to/4sQYHEE",
+    featured: false
+  }, 
+  {
+    name: "Secret Lives Orange & Green Tip Press On Nails",
+    description: "Bold light orange nails with yellow & green tips, reusable set of 24",
+    image: "https://m.media-amazon.com/images/I/71QwUTTgxUL._SL1440_.jpg",
+    affiliateLink: "https://amzn.to/4uZX8G8",
+    featured: false
+  }, 
+  {
+    name: "Sunburst Mart Pastel Spring Floral French Tip Nails",
+    description: "3D flower pastel press-on nails, pink & yellow French tip set of 24",
+    image: "https://m.media-amazon.com/images/I/61wvSDO41NL._SL1024_.jpg",
+    affiliateLink: "https://amzn.to/4bHvwOo",
+    featured: false
+  }, 
+      // .............................................................................................
+  // {
+  //     name: "Secret Lives Pink Floral Press On Nails",
+  //     description: "Glossy translucent pink nails with flower design, reusable set of 24",
+  //     image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80",
+  //     affiliateLink: "https://amazon.in/dp/B0CLPBSQQ3",
+  //     featured: false
+  // {
+  //   name: "Secret Lives Mango Swirl Press On Nails",
+  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
+  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
+  //   affiliateLink: "https://amzn.to/4dmIcM3",
+  //   featured: false
+  // }, 
+  // {
+  //   name: "Secret Lives Mango Swirl Press On Nails",
+  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
+  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
+  //   affiliateLink: "https://amzn.to/4dmIcM3",
+  //   featured: false
+  // }, 
+  // {
+  //   name: "Secret Lives Mango Swirl Press On Nails",
+  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
+  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
+  //   affiliateLink: "https://amzn.to/4dmIcM3",
+  //   featured: false
+  // }, 
+  // {
+  //   name: "Secret Lives Mango Swirl Press On Nails",
+  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
+  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
+  //   affiliateLink: "https://amzn.to/4dmIcM3",
+  //   featured: false
+  // }, 
+  // {
+  //   name: "Secret Lives Mango Swirl Press On Nails",
+  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
+  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
+  //   affiliateLink: "https://amzn.to/4dmIcM3",
+  //   featured: false
+  // }
+
 ],
   "Gifts & Cute Finds": [
     {
