@@ -416,49 +416,8 @@ const PRODUCTS = {
     image: "https://m.media-amazon.com/images/I/61wvSDO41NL._SL1024_.jpg",
     affiliateLink: "https://amzn.to/4bHvwOo",
     featured: false
-  }, 
-      // .............................................................................................
-  // {
-  //     name: "Secret Lives Pink Floral Press On Nails",
-  //     description: "Glossy translucent pink nails with flower design, reusable set of 24",
-  //     image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80",
-  //     affiliateLink: "https://amazon.in/dp/B0CLPBSQQ3",
-  //     featured: false
-  // {
-  //   name: "Secret Lives Mango Swirl Press On Nails",
-  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
-  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
-  //   affiliateLink: "https://amzn.to/4dmIcM3",
-  //   featured: false
-  // }, 
-  // {
-  //   name: "Secret Lives Mango Swirl Press On Nails",
-  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
-  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
-  //   affiliateLink: "https://amzn.to/4dmIcM3",
-  //   featured: false
-  // }, 
-  // {
-  //   name: "Secret Lives Mango Swirl Press On Nails",
-  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
-  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
-  //   affiliateLink: "https://amzn.to/4dmIcM3",
-  //   featured: false
-  // }, 
-  // {
-  //   name: "Secret Lives Mango Swirl Press On Nails",
-  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
-  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
-  //   affiliateLink: "https://amzn.to/4dmIcM3",
-  //   featured: false
-  // }, 
-  // {
-  //   name: "Secret Lives Mango Swirl Press On Nails",
-  //   description: "Glossy acrylic designer nails, fun mango & pink curve art set of 22",
-  //   image: "https://m.media-amazon.com/images/I/51ISA5mgYYL._SL1000_.jpg",
-  //   affiliateLink: "https://amzn.to/4dmIcM3",
-  //   featured: false
-  // }
+  } 
+ 
 
 ],
   "Gifts & Cute Finds": [
